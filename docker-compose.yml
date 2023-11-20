@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  db:
+    image: elestio/postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: ferretdb
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    ports:
+      - 172.17.0.1:43454:5432
+  ferretdb:
+    image: ghcr.io/ferretdb/ferretdb
+    restart: always
+    ports:
+      - 172.17.0.1:26910:27017
+    environment:
+      - FERRETDB_POSTGRESQL_URL=postgres://db:5432/ferretdb
+
+  pgadmin4:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - "172.17.0.1:19446:8080"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+
+networks:
+  default:
+    name: ferretdb
