@@ -5,6 +5,3 @@ set -o allexport; source .env; set +o allexport;
 echo "Waiting for software to be ready ..."
 sleep 60s;
 
-
-docker run --rm -it --network=ferretdb --entrypoint=mongosh mongo \
-  "mongodb://${POSTGRES_USER}:${POSTGRES_PASSWORD}@ferretdb/ferretdb?authMechanism=PLAIN"

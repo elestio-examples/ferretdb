@@ -15,6 +15,14 @@ ports:
     public: true
     path: "/"
     isAuth: false
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "61705"
+    targetPort: "51383"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
   - protocol: "TCP"
     targetProtocol: "TCP"
     listeningPort: "56220"
@@ -64,5 +72,9 @@ webUI:
     password: "[ADMIN_PASSWORD]"
   - url: "https://[CI_CD_DOMAIN]:55423"
     label: "PgAdmin"
+    login: "[ADMIN_EMAIL]"
+    password: "[ADMIN_PASSWORD]"
+  - url: "https://[CI_CD_DOMAIN]:61705"
+    label: "Mongo express"
     login: "[ADMIN_EMAIL]"
     password: "[ADMIN_PASSWORD]"

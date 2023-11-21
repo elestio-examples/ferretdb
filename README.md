@@ -21,3 +21,9 @@ You can open pgAdmin web UI here:
     URL: https://[CI_CD_DOMAIN]:55423
     Login: [ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
+
+You can open Mongo express web UI here:
+
+    URL: https://[CI_CD_DOMAIN]:61705
+    Login: [ADMIN_EMAIL]
+    password: [ADMIN_PASSWORD]

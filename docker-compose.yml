@@ -21,6 +21,21 @@ services:
     environment:
       - FERRETDB_POSTGRESQL_URL=postgres://db:5432/ferretdb
 
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "172.17.0.1:51383:8081"
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: ${POSTGRES_USER}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${POSTGRES_PASSWORD}
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${POSTGRES_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${POSTGRES_PASSWORD}
+      ME_CONFIG_MONGODB_URL: mongodb://${POSTGRES_USER}:${POSTGRES_PASSWORD}@ferretdb:27017/?directConnection=true&appName=mongosh+2.0.1
+    depends_on:
+      - mongo
+      - mongosetup
+
   pgadmin4:
     image: dpage/pgadmin4:latest
     restart: always
@@ -32,7 +47,6 @@ services:
       - "172.17.0.1:19446:8080"
     volumes:
       - ./servers.json:/pgadmin4/servers.json
-
-networks:
-  default:
-    name: ferretdb
+# networks:
+#   default:
+#     name: ferretdb
