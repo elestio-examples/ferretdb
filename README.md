@@ -4,7 +4,7 @@
 
 Deploy FerretDB server with CI/CD on Elestio
 
-<img src="ferretdb.jpg" style='width: 100%;'/>
+<img src="ferretdb.jpg" style='width: 200px;'/>
 <br/>
 <br/>
 
