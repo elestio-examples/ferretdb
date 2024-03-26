@@ -34,18 +34,3 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://${POSTGRES_USER}:${POSTGRES_PASSWORD}@ferretdb:27017/ferretdb?authMechanism=PLAIN
     depends_on:
       - ferretdb
-
-  pgadmin4:
-    image: dpage/pgadmin4:latest
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
-      PGADMIN_LISTEN_PORT: 8080
-    ports:
-      - "172.17.0.1:19446:8080"
-    volumes:
-      - ./servers.json:/pgadmin4/servers.json
-# networks:
-#   default:
-#     name: ferretdb

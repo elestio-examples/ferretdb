@@ -2,22 +2,6 @@ ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
     listeningPort: "443"
-    targetPort: "26910"
-    targetIP: "172.17.0.1"
-    public: true
-    path: "/"
-    isAuth: false
-  - protocol: "HTTPS"
-    targetProtocol: "HTTP"
-    listeningPort: "55423"
-    targetPort: "19446"
-    targetIP: "172.17.0.1"
-    public: true
-    path: "/"
-    isAuth: false
-  - protocol: "HTTPS"
-    targetProtocol: "HTTP"
-    listeningPort: "61705"
     targetPort: "51383"
     targetIP: "172.17.0.1"
     public: true
@@ -25,14 +9,12 @@ ports:
     isAuth: false
   - protocol: "TCP"
     targetProtocol: "TCP"
-    listeningPort: "56220"
+    listeningPort: "27017"
+    targetPort: "26910"
     targetIP: "172.17.0.1"
-    targetPort: "43454"
     public: true
     path: "/"
     isAuth: false
-    login: ""
-    password: ""
 
 environments:
   - key: "ADMIN_EMAIL"
@@ -67,14 +49,6 @@ lifeCycleConfig:
   postDeployCommand: "./scripts/postDeploy.sh"
 webUI:
   - url: "https://[CI_CD_DOMAIN]"
-    label: "FerretDB"
-    login: "[ADMIN_EMAIL]"
-    password: "[ADMIN_PASSWORD]"
-  - url: "https://[CI_CD_DOMAIN]:55423"
-    label: "PgAdmin"
-    login: "[ADMIN_EMAIL]"
-    password: "[ADMIN_PASSWORD]"
-  - url: "https://[CI_CD_DOMAIN]:61705"
     label: "Mongo express"
     login: "postgres"
     password: "[ADMIN_PASSWORD]"
