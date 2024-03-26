@@ -76,5 +76,5 @@ webUI:
     password: "[ADMIN_PASSWORD]"
   - url: "https://[CI_CD_DOMAIN]:61705"
     label: "Mongo express"
-    login: "[ADMIN_EMAIL]"
+    login: "postgres"
     password: "[ADMIN_PASSWORD]"
