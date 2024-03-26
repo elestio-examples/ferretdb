@@ -38,7 +38,7 @@ config:
   buildDir: "/"
   runCommand: "docker-compose up -d"
   icon: ""
-  screenshot: "ferretdb.png"
+  screenshot: "ferretdb.jpg"
 lifeCycleConfig:
   preInstallCommand: "./scripts/preInstall.sh"
   postInstallCommand: "./scripts/postInstall.sh"
