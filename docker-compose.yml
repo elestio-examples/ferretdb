@@ -14,7 +14,7 @@ services:
     ports:
       - 172.17.0.1:43454:5432
   ferretdb:
-    image: ghcr.io/ferretdb/ferretdb
+    image: ghcr.io/ferretdb/ferretdb:${SELECTED_SOFTWARE_TAG}
     restart: always
     ports:
       - 172.17.0.1:26910:27017
