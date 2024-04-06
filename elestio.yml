@@ -17,6 +17,8 @@ ports:
     isAuth: false
 
 environments:
+  - key: "SELECTED_SOFTWARE_TAG"
+    value: "latest"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
   - key: "ADMIN_PASSWORD"
